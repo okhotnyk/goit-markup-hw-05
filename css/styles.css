@@ -235,6 +235,10 @@ p {
   background-color: var(--accent-color-hover);
 }
 
+.button.primary:active {
+  scale: 100%;
+}
+
 /* Modal window */
 .backdrop {
   position: fixed;
@@ -242,7 +246,12 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
+
   background-color: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+  transition: opacity 1000ms var(--cubic);
 }
 
 .backdrop.is-hidden {
@@ -264,18 +273,30 @@ p {
   box-shadow: 0px 2px 1px 0px #00000033, 0px 1px 1px 0px #00000024,
     0px 1px 3px 0px #0000001f;
 
-  transition: transform 250ms var(--cubic);
-  transform: scale(90%);
+  scale: 50%;
+
+  transition: scale 250ms var(--cubic);
+}
+
+.backdrop.is-hidden .modal {
+  scale: 100%;
 }
 
 .button-close {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 10px;
   right: 10px;
 
   height: 30px;
   width: 30px;
+  -webkit-appearance: none;
+  padding: 0px;
   border-radius: 50%;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.1);
 
   background-color: var(--contrast-text-color);
   color: rgba(0, 0, 0, 0.2);

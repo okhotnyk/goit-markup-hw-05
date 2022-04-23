@@ -247,17 +247,22 @@ p {
   width: 100%;
   height: 100%;
   z-index: 1;
-
   background-color: rgba(0, 0, 0, 0.2);
 
   opacity: 1;
-  transition: opacity 1000ms var(--cubic);
+  visibility: visible;
+
+  transition: opacity 1000ms var(--cubic), visibility 1000ms var(--cubic);
 }
 
 .backdrop.is-hidden {
-  visibility: hidden;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.5);
 }
 
 .modal {
@@ -265,18 +270,13 @@ p {
   top: 50%;
   left: 50%;
 
-  height: 581px;
+  min-height: 581px;
   width: 528px;
+  background-color: var(--contrast-text-color);
 
-  background-color: #fff;
-  box-shadow: 0px 2px 1px 0px #00000033, 0px 1px 1px 0px #00000024,
-    0px 1px 3px 0px #0000001f;
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 250ms var(--cubic);
-}
 
-.backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0.8);
+  transition: transform 1000ms var(--cubic);
 }
 
 .button-close {
@@ -290,6 +290,7 @@ p {
   height: 30px;
   width: 30px;
   -webkit-appearance: none;
+  -webkit-border-radius: 0px;
   padding: 0px;
   border-radius: 50%;
   border-width: 1px;

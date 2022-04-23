@@ -235,10 +235,6 @@ p {
   background-color: var(--accent-color-hover);
 }
 
-.button.primary:active {
-  scale: 100%;
-}
-
 /* Modal window */
 .backdrop {
   position: fixed;
@@ -252,17 +248,13 @@ p {
   opacity: 1;
   visibility: visible;
 
-  transition: opacity 1000ms var(--cubic), visibility 1000ms var(--cubic);
+  transition: opacity 250ms var(--cubic), visibility 250ms var(--cubic);
 }
 
 .backdrop.is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-}
-
-.backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0.5);
 }
 
 .modal {
@@ -276,7 +268,11 @@ p {
 
   transform: translate(-50%, -50%) scale(1);
 
-  transition: transform 1000ms var(--cubic);
+  transition: transform 250ms var(--cubic);
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.8);
 }
 
 .button-close {
@@ -284,8 +280,8 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 10px;
-  right: 10px;
+  top: 8px;
+  right: 8px;
 
   height: 30px;
   width: 30px;
@@ -453,7 +449,7 @@ p {
   background-color: var(--contrast-text-color);
   color: var(--icons-gray);
 
-  transition: background-color 250ms var(--cubic);
+  transition: background-color 250ms var(--cubic), color;
 }
 
 .team-text .link-media:focus,

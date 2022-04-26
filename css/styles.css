@@ -145,7 +145,7 @@ p {
   display: inline-block;
   position: absolute;
   left: 0px;
-  bottom: 0px;
+  bottom: -1px;
   width: 100%;
   height: 4px;
   border-radius: 2px;
@@ -294,6 +294,7 @@ p {
 
   background-color: var(--contrast-text-color);
   color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 /* Наши особенности */
@@ -376,12 +377,12 @@ p {
 }
 
 .production-type {
-  display: block;
+  display: flex;
   position: absolute;
-  padding-top: 27px;
-  padding-bottom: 27px;
   width: 370px;
   height: 70px;
+  justify-content: center;
+  align-items: center;
 
   font-family: Roboto, sans-serif;
   font-size: 14px;
@@ -449,17 +450,11 @@ p {
   background-color: var(--contrast-text-color);
   color: var(--icons-gray);
 
-  transition: background-color 250ms var(--cubic), color;
+  transition: background-color 250ms var(--cubic), color 250ms var(--cubic);
 }
 
 .team-text .link-media:focus,
 .team-text .link-media:hover {
-  background-color: var(--brand-accent-color);
-  color: var(--contrast-text-color);
-}
-
-.link-media:hover,
-.link-media:focus {
   background-color: var(--brand-accent-color);
   color: var(--contrast-text-color);
 }
@@ -605,7 +600,7 @@ p {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   color: var(--contrast-text-color);
   align-items: center;
   justify-content: center;
@@ -727,6 +722,10 @@ p {
 }
 
 .example-card:hover .overlay {
+  transform: translateY(-100%);
+}
+
+.example-card .link:focus .overlay {
   transform: translateY(-100%);
 }
 
